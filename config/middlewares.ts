@@ -5,12 +5,14 @@ export default [
   {
     name: "strapi::cors",
     config: {
-      enabled: true,
-      headers: "*",
       origin: [
-        "https://blog-react-strapi-lovat.vercel.app", // Allow Vercel frontend
-        "http://localhost:3000", // Allow local development
+        "https://blog-react-strapi-lovat.vercel.app",
+        "http://localhost:3000",
       ],
+      methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"],
+      headers: ["Content-Type", "Authorization", "Origin", "Accept"],
+      keepHeaderOnError: true,
+      credentials: true,
     },
   },
   "strapi::poweredBy",
